@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="card-header">
+        Mantenimiento de marcas
+    </div>
+    <div class="card-body">
+        <button type="button"
+        (click)="onNavigateCreateBrand()" class="btn btn-primary">Nuevo</button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre de la Marca</th>
+                    <th scope="col">Email | Contacto</th>
+                    <th scope="col">Homepage</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of brands; track $index) {
+                    <tr>
+                        <th scope="row">{{item.brandid}}</th>
+                        <td>{{item.marcanombre}}</td>
+                        <td>{{item.email}}</td>
+                        <td>{{item.homepage}}</td>
+                        <td><button type="button"
+                            class="btn btn-info"
+                            (click)="onNavigateEditBrand(item.brandid)">Editar</button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        
+    </div>
+</div>

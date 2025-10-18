@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="card-header">
+      Mantenimiento de categorias
+    </div>
+    <div class="card-body">
+        <button type="button" 
+          (click)="onNavigateCreateCategory()" class="btn btn-primary">Nuevo</button>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre de la Categoria</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Editar</th>
+              </tr>
+            </thead>
+            <tbody>
+                @for(item of categorias; track $index){
+                    <tr>
+                        <th scope="row">{{item.categoryid}}</th>
+                        <td>{{item.categoryname}}</td>
+                        <td>{{item.description}}</td>
+                        <td><button type="button" 
+                          class="btn btn-info"
+                          (click)="onNavigateEditCategory(item.categoryid)">Editar</button></td>
+                      </tr> 
+                }                           
+            </tbody>
+          </table>
+
+    </div>
+</div>
+

@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-header">
+      {{titulo}}
+    </div>
+    <div class="card-body">
+
+        <div class="form-floating mb-3">
+            <input type="text" readonly 
+                class="form-control" 
+                id="txtcategoryid" [(ngModel)]="categoryId"
+                placeholder="name@example.com">
+            <label for="txtcategoryid">Category ID</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" 
+                class="form-control" [(ngModel)]="categoryName"
+                id="txtcategoryname" 
+                placeholder="name@example.com">
+            <label for="txtcategoryname">Category Name</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" 
+                class="form-control" [(ngModel)]="description"
+                id="txtdescription" 
+                placeholder="name@example.com">
+            <label for="txtdescription">Description</label>
+        </div>        
+        <hr />
+        <button type="button" (click)="registerCategory()"
+         class="btn btn-success">Guardar</button>
+    </div>
+  </div>
+

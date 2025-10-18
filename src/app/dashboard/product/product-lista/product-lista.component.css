@@ -1,0 +1,33 @@
+.card {
+    border-radius: 15px;
+  }
+  .card-body {
+    padding: 2rem;
+  }
+  .input-group-text {
+    background-color: #fb7701;
+    color: white;
+  }
+  .table th, .table td {
+    vertical-align: middle;
+  }
+  .badge {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  .btn-primary, .btn-warning {
+    border-radius: 20px;
+  }
+  .btn-warning {
+    background-color: #ffc107;
+    color: white;
+  }
+  .btn-warning:hover {
+    background-color: #e0a800;
+  }
+  .bi-search {
+    font-size: 1.2rem;
+  }

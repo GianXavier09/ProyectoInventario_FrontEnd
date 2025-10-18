@@ -1,0 +1,43 @@
+<div class="card">
+    <div class="card-header">
+        {{titulo}}
+    </div>
+    <div class="card-body">
+
+        <div  class="form-floating mb-3">
+            <input type="text" readonly
+            class="form-control"
+            id="txtbrandid" [(ngModel)]="brandId"
+            placeholder="name@example.com">
+        <label for="txtbrandid"> Brand ID</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text"
+        class="form-control" [(ngModel)]="marcaNombre"
+        id="txtmarcanombre"
+        placeholder="name@example.com">
+     <label for="txtmarcanombre"> Nombre de la Marca</label>
+    </div>
+
+     <div class="form-floating mb-3">
+        <input type="text"
+        class="form-control" [(ngModel)]="email"
+        id="txtemail"
+        placeholder="name@example.com">
+     <label for="txtemail"> Email | Contacto</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text"
+        class="form-control" [(ngModel)]="homepage"
+        id="txthomepage"
+        placeholder="name@example.com">
+     <label for="txthomepage"> HomePage</label>
+    </div>
+    <hr />
+        <button type="button" (click)="registerBrand()"
+         class="btn btn-success">Guardar</button>
+
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="card shadow-lg">
+  <div class="card-body">
+    <!-- Fila para la caja de búsqueda y botón -->
+    <div class="d-flex justify-content-between mb-3">
+      <!-- Caja de texto de búsqueda -->
+      <div class="input-group">
+        <input 
+          type="text" 
+          class="form-control w-50" 
+          placeholder="Buscar Producto..." 
+          [(ngModel)]="searchQuery">
+      </div>
+      <!-- Botón de Agregar Producto -->
+      <button type="button" (click)="onNavigateCreateProduct()" class="btn btn-primary ms-3">Agregar Producto</button>
+    </div>
+
+    <!-- Tabla de productos -->
+    <table class="table table-striped table-bordered table-hover align-middle text-center">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Producto</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Stock</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Talla</th>
+          <th scope="col">Categoria</th>
+          <th scope="col">Marca</th>
+          <th scope="col" class="text-center">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of productos | filter:searchQuery">
+          <th scope="row">{{ item.productid }}</th>
+          <td>{{ item.productname }}</td>
+          <td>{{ item.price | currency }}</td>
+          <td>{{ item.stock }}</td>
+          <td>
+            <span class="badge" [ngClass]="{
+                  'bg-success': item.stock > 0 && item.estado,
+                  'bg-danger': item.stock === 0 || !item.estado
+            }">
+              {{ item.stock === 0 ? 'Inactivo' : (item.estado ? 'Activo' : 'Inactivo') }}
+            </span>
+          </td>
+          <td>{{ item.talla }}</td>
+          <td>{{ item.categoryname }}</td>
+          <td>{{ item.marcanombre }}</td>
+          <td>
+            <button type="button" class="btn btn-warning" (click)="onNavigateEditProduct(item.productid)">
+              <i class="bi bi-pencil-square"></i> Editar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
