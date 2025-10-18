@@ -10,11 +10,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './dashboard/home/home.component';
 import { LoginComponent } from './auth/login/login.component';
 import { authGuard } from './auth/auth.guard';
+import { TiendaComponent } from './client/tienda/tienda.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 export const routes: Routes = [
     //Publico
     {path: "login", component: LoginComponent},
-    //{path: "tienda", component: TiendaComponent},
+    {path: "tienda", component: TiendaComponent},
 
 
     //Protegido
@@ -34,7 +36,7 @@ export const routes: Routes = [
         ],
     },
     
-    //{path: 'unauthorized', component: UnauthorizedComponent},
+    {path: 'unauthorized', component: UnauthorizedComponent},
 
     {path: '', redirectTo: 'tienda', pathMatch: 'full'},
     {path: "**", component: PageNotFoundComponent}
