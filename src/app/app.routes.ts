@@ -8,11 +8,21 @@ import { ProductListaComponent } from './dashboard/product/product-lista/product
 import { ProductDetalleComponent } from './dashboard/product/product-detalle/product-detalle.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './dashboard/home/home.component';
-//import { LoginComponent } from './auth/login/login.component';
+import { LoginComponent } from './auth/login/login.component';
+import { authGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
-    //{path: "login", component: LoginComponent},
-    {path: "dashboard", component: DashboardComponent,
+    //Publico
+    {path: "login", component: LoginComponent},
+    //{path: "tienda", component: TiendaComponent},
+
+
+    //Protegido
+    {
+        path: "dashboard", 
+        component: DashboardComponent,
+        canActivate: [authGuard],
+        data: {role: 'ADMIN'},
         children:[
             {path: "home", component: HomeComponent},
             {path: "brand", component: BrandListaComponent},
@@ -21,9 +31,12 @@ export const routes: Routes = [
             {path: "category/:id", component: CategoryDetalleComponent},
             {path: "product", component: ProductListaComponent},
             {path: "product/:id", component: ProductDetalleComponent},
-        ]
+        ],
     },
-    {path: "", redirectTo: "dashboard/product", pathMatch: "full"},
+    
+    //{path: 'unauthorized', component: UnauthorizedComponent},
+
+    {path: '', redirectTo: 'tienda', pathMatch: 'full'},
     {path: "**", component: PageNotFoundComponent}
 
 ];
