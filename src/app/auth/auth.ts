@@ -7,7 +7,7 @@ export interface LoginResponse {
 
 export interface DecodedToken {
   sub: string;
-  role: string;
-  exp: number;
-  iat: number;
+  authorities?: string[];
+  exp?: number;
+  iat?: number;
 }
