@@ -1,1 +1,44 @@
-<p>tienda works!</p>
+<div class="container my-5">
+  <!-- Título de la Tienda -->
+  <div class="text-center mb-5">
+    <h1 class="display-4">Nuestros Productos</h1>
+    <p class="lead text-muted">Explora nuestra colección exclusiva.</p>
+  </div>
+
+  <!-- Barra de Búsqueda y Filtros -->
+  <div class="row mb-4">
+    <div class="col-md-8">
+      <input type="text" class="form-control" placeholder="Buscar por nombre, categoría, marca...">
+    </div>
+    <div class="col-md-4">
+      <select class="form-select">
+        <option selected>Ordenar por...</option>
+        <option value="1">Precio: Menor a Mayor</option>
+        <option value="2">Precio: Mayor a Menor</option>
+        <option value="3">Más populares</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Cuadrícula de Productos -->
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+    <!-- Aquí iterarías sobre tu lista de productos con *ngFor -->
+    <!-- Ejemplo de una tarjeta de producto -->
+    <div class="col" *ngFor="let producto of productos">
+      <div class="card h-100 shadow-sm">
+        <!-- 
+          Aquí está el cambio:
+          - Usamos [src] para vincular la propiedad 'imagenUrl' del producto.
+          - Añadimos un estilo para que la imagen se ajuste bien a la tarjeta.
+        -->
+        <img [src]="producto.imagenUrl || 'https://via.placeholder.com/300x200'" class="card-img-top" alt="{{ producto.productname }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ producto.productname }}</h5>
+          <p class="card-text text-muted">{{ producto.categoryname }} - {{ producto.marcanombre }}</p>
+          <p class="card-text fs-5 fw-bold">{{ producto.price | currency }}</p>
+          <button class="btn btn-primary w-100">Agregar al Carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

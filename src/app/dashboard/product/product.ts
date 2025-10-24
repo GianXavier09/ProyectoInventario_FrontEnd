@@ -24,6 +24,7 @@ export interface ProductListDTO {
   talla: string;
   categoryname: string;
   marcanombre: string;
+  imagenUrl: string;
 }
 
 export interface ProductDTO {

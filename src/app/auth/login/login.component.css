@@ -1,0 +1,120 @@
+/* Estilo para la página completa, la centra vertical y horizontalmente */
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* La tarjeta principal del login */
+.login-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Contenedor y texto del logo */
+.logo-container {
+  margin-bottom: 24px;
+}
+
+.logo-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Título "Iniciar Sesión" */
+h2 {
+  margin-bottom: 32px;
+  color: #555;
+  font-weight: 300; /* Un peso más ligero para un look moderno */
+  font-size: 1.8rem;
+}
+
+/* Contenedor para el ícono y el input */
+.input-group {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+/* Íconos dentro de los inputs */
+.input-group i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+  transition: color 0.3s;
+}
+
+/* Estilo de los campos de texto */
+.input-group input {
+  width: 100%;
+  padding: 12px 15px 12px 45px; /* Espacio a la izquierda para el ícono */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+}
+
+/* Efecto de foco en los inputs */
+.input-group input:focus {
+  outline: none;
+  border-color: #ff6600; /* Naranja para el foco */
+  box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.2);
+}
+
+.input-group input:focus + i {
+  color: #ff6600;
+}
+
+/* Botón de Ingresar - Naranja con texto blanco */
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ff6600; /* Color naranja */
+  color: white; /* Texto en blanco */
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-login:hover {
+  background-color: #e65c00; /* Un naranja un poco más oscuro al pasar el mouse */
+  transform: translateY(-2px);
+}
+
+.btn-login:active {
+  transform: translateY(0);
+}
+
+/* Contenedor y mensaje de error */
+.error-container {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: rgba(255, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.error-message {
+  color: #d93025;
+  margin: 0;
+  font-size: 0.9rem;
+}
