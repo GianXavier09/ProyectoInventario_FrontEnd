@@ -1,120 +1,128 @@
-/* Estilo para la página completa, la centra vertical y horizontalmente */
-.login-page {
+/* Estilos generales del contenedor */
+.login-container {
   display: flex;
-  align-items: center;
   justify-content: center;
-  height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  align-items: center;
+  min-height: 100vh; /* Asegura que ocupa toda la altura de la ventana */
+  background-color: #f8f9fa; /* Un color de fondo suave */
+  padding: 20px;
 }
 
-/* La tarjeta principal del login */
-.login-card {
-  background: white;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  text-align: center;
+/* Caja principal del login */
+.login-box {
+  background-color: #ffffff;
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 400px;
-  transition: transform 0.3s ease-in-out;
+  max-width: 400px; /* Ancho máximo del formulario */
+  text-align: center;
 }
 
-.login-card:hover {
-  transform: translateY(-5px);
-}
-
-/* Contenedor y texto del logo */
+/* Contenedor del logo */
 .logo-container {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
-.logo-text {
-  font-size: 2.5rem;
-  font-weight: bold;
+/* Títulos */
+.login-box h2 {
   color: #333;
+  margin-bottom: 10px;
+  font-weight: 600;
 }
 
-/* Título "Iniciar Sesión" */
-h2 {
-  margin-bottom: 32px;
+.login-box h3 {
   color: #555;
-  font-weight: 300; /* Un peso más ligero para un look moderno */
-  font-size: 1.8rem;
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 1.1rem;
 }
 
-/* Contenedor para el ícono y el input */
+/* Grupos de input (label + input) */
 .input-group {
-  position: relative;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  text-align: left;
 }
 
-/* Íconos dentro de los inputs */
-.input-group i {
-  position: absolute;
-  left: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #aaa;
-  transition: color 0.3s;
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
-/* Estilo de los campos de texto */
 .input-group input {
   width: 100%;
-  padding: 12px 15px 12px 45px; /* Espacio a la izquierda para el ícono */
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
+  padding: 12px 15px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
   font-size: 1rem;
-  transition: border-color 0.3s, box-shadow 0.3s;
-  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+  box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-/* Efecto de foco en los inputs */
 .input-group input:focus {
+  border-color: #fb7701; /* Color naranja Temu */
   outline: none;
-  border-color: #ff6600; /* Naranja para el foco */
-  box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.2);
+  box-shadow: 0 0 0 2px rgba(251, 119, 1, 0.25);
 }
 
-.input-group input:focus + i {
-  color: #ff6600;
+.input-group input::placeholder {
+  color: #aab8c2;
 }
 
-/* Botón de Ingresar - Naranja con texto blanco */
-.btn-login {
+/* Botón de ingresar */
+.login-button {
   width: 100%;
   padding: 12px;
+  background-color: #fb7701; /* Color naranja Temu */
+  color: white;
   border: none;
-  border-radius: 8px;
-  background-color: #ff6600; /* Color naranja */
-  color: white; /* Texto en blanco */
-  font-size: 1.1rem;
-  font-weight: bold;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
 }
 
-.btn-login:hover {
-  background-color: #e65c00; /* Un naranja un poco más oscuro al pasar el mouse */
-  transform: translateY(-2px);
+.login-button:hover {
+  background-color: #e06c00; /* Naranja un poco más oscuro */
+  transform: translateY(-1px);
 }
 
-.btn-login:active {
+.login-button:active {
   transform: translateY(0);
 }
 
-/* Contenedor y mensaje de error */
-.error-container {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: rgba(255, 0, 0, 0.1);
-  border-radius: 8px;
+/* Mensaje de error */
+.error {
+  color: #dc3545; /* Color rojo para errores */
+  margin-top: 15px;
+  font-size: 0.9rem;
 }
 
-.error-message {
-  color: #d93025;
-  margin: 0;
+/* Enlaces del pie de página */
+.footer-links {
+  margin-top: 25px;
   font-size: 0.9rem;
+}
+
+.footer-links a {
+  color: #fb7701; /* Color naranja Temu */
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer-links a:hover {
+  color: #e06c00;
+  text-decoration: underline;
+}
+
+/* Estilos responsivos (opcional) */
+@media (max-width: 480px) {
+  .login-box {
+    padding: 30px 20px;
+  }
 }
