@@ -1,27 +1,35 @@
-import { Component, inject } from '@angular/core'; // Asegúrate de importar inject
+import { Component, inject, OnInit } from '@angular/core'; // Asegúrate de importar inject
 import { AuthService } from '../auth.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true, // Asegúrate que sea standalone si así lo generaste
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'] // Corregido a styleUrls
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   username: string = '';
   password: string = '';
   errorMessage: string = '';
+  registrationSuccess = false;
 
   // Inyectamos Router y AuthService usando inject (o en el constructor si prefieres)
   private authService = inject(AuthService);
   private router = inject(Router);
+  private route = inject(ActivatedRoute);
 
-  // Puedes quitar el constructor si ya usas inject
-  // constructor(private authService: AuthService, private router: Router) { }
+  ngOnInit(): void {
+    // Comprobamos si venimos de un registro exitoso
+    this.route.queryParams.subscribe(params => {
+      if (params['registered'] === 'true') {
+        this.registrationSuccess = true;
+      }
+    });
+  }
 
   login(): void {
     if (!this.username || !this.password) {

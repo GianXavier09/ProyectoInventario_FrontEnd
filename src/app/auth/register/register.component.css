@@ -1,0 +1,121 @@
+/* Estilos generales del contenedor */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+/* Caja principal del registro */
+.register-box {
+  background-color: #ffffff;
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Contenedor del logo */
+.logo-container {
+  margin-bottom: 20px;
+}
+
+/* Títulos */
+.register-box h2 {
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.register-box h3 {
+  color: #555;
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+/* Grupos de input (label + input) */
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.input-group input:focus {
+  border-color: #fb7701;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(251, 119, 1, 0.25);
+}
+
+.input-group input::placeholder {
+  color: #aab8c2;
+}
+
+/* Botón de registrarse */
+.register-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #fb7701;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+}
+
+.register-button:hover {
+  background-color: #e06c00;
+  transform: translateY(-1px);
+}
+
+.register-button:active {
+  transform: translateY(0);
+}
+
+/* Mensaje de error */
+.error {
+  color: #dc3545;
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+/* Enlaces del pie de página */
+.footer-links {
+  margin-top: 25px;
+  font-size: 0.9rem;
+}
+
+.footer-links a {
+  color: #fb7701;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer-links a:hover {
+  color: #e06c00;
+  text-decoration: underline;
+}

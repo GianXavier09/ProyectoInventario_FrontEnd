@@ -12,10 +12,12 @@ import { LoginComponent } from './auth/login/login.component';
 import { authGuard } from './auth/auth.guard';
 import { TiendaComponent } from './client/tienda/tienda.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 export const routes: Routes = [
     //Publico
     {path: "login", component: LoginComponent},
+    { path: 'register', component: RegisterComponent },
     {path: "tienda", component: TiendaComponent},
 
 
@@ -38,7 +40,7 @@ export const routes: Routes = [
     
     {path: 'unauthorized', component: UnauthorizedComponent},
 
-    {path: '', redirectTo: 'tienda', pathMatch: 'full'},
+    {path: '', redirectTo: 'login', pathMatch: 'full'},
     {path: "**", component: PageNotFoundComponent}
 
 ];

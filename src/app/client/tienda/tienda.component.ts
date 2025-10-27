@@ -4,6 +4,7 @@ import { ProductService } from '../../dashboard/product/product.service';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../auth/auth.service'; // Importa AuthService
 import { RouterLink } from '@angular/router'; // Importa RouterLink
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-tienda',
@@ -16,6 +17,7 @@ export class TiendaComponent implements OnInit {
 
   productos: ProductListDTO[] = [];
   private authService = inject(AuthService); // Inyecta AuthService
+  isLoggedIn$: Observable<boolean> = this.authService.isLoggedIn$;
 
   // Puedes quitar el constructor si solo inyectabas ProductService
   constructor(private productService: ProductService) { }

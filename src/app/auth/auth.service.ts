@@ -94,4 +94,9 @@ export class AuthService {
   private isBrowser(): boolean {
     return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
   }
+
+    register(user: any): Observable<any> {
+    // Le decimos a HttpClient que espere una respuesta de tipo texto.
+    return this.http.post(`${this.baseUrl}/register`, user, { responseType: 'text' });
+  }
 }
