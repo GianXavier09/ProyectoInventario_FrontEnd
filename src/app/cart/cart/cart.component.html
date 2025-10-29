@@ -1,0 +1,87 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="display-5 mb-4">Mi Carrito de Compras</h2>
+
+      @if (cartItems.length > 0) {
+        <div class="table-responsive">
+          <table class="table align-middle">
+            <thead class="table-light">
+              <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Precio Unit.</th>
+                <th scope="col" style="width: 120px;">Cantidad</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (item of cartItems; track item.product.productid) {
+                <tr>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <img [src]="item.product.imagenUrl || 'https://via.placeholder.com/100x100'" 
+                           alt="{{ item.product.productname }}" 
+                           width="80" 
+                           class="img-fluid rounded me-3">
+                      <span>{{ item.product.productname }}</span>
+                    </div>
+                  </td>
+
+                  <td>{{ item.product.price | currency }}</td>
+
+                  <td>
+                    <input type="number"
+                           class="form-control form-control-sm"
+                           [value]="item.quantity"
+                           (change)="updateQuantity(item, $event)"
+                           min="0">
+                  </td>
+
+                  <td>{{ (item.product.price * item.quantity) | currency }}</td>
+
+                  <td>
+                    <button class="btn btn-outline-danger btn-sm" (click)="removeFromCart(item.product.productid)">
+                      Eliminar
+                    </button>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+
+        <div class="row mt-4 justify-content-end">
+          <div class="col-md-5">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Resumen del Pedido</h5>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">
+                    Total
+                    <span class="fs-4 text-primary">{{ total | currency }}</span>
+                  </li>
+                </ul>
+                <div class="d-grid gap-2 mt-3">
+                  <button class="btn btn-success btn-lg" (click)="proceedToCheckout()">
+                    Finalizar Compra
+                  </button>
+                  <button class="btn btn-outline-danger" (click)="clearCart()">
+                    Vaciar Carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      } @else {
+        <div class="text-center p-5 border rounded">
+          <h3 class="text-muted">Tu carrito está vacío</h3>
+          <p>Aún no has agregado productos. ¡Explora nuestra tienda!</p>
+          <a routerLink="/tienda" class="btn btn-primary btn-lg mt-3">Ir a la Tienda</a>
+        </div>
+      }
+    </div>
+  </div>
+</div>

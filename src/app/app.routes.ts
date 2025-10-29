@@ -13,6 +13,7 @@ import { authGuard } from './auth/auth.guard';
 import { TiendaComponent } from './client/tienda/tienda.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { CartComponent } from './cart/cart/cart.component';
 
 export const routes: Routes = [
     //Publico
@@ -20,6 +21,7 @@ export const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     {path: "tienda", component: TiendaComponent},
 
+    {path: "cart", component: CartComponent},
 
     //Protegido
     {
