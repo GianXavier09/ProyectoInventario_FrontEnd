@@ -1,1 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif !important;
+  background-color: #f4f5f7 !important; /* Dejamos el gris por si decides volver */
+  color: #333;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600 !important;
+  color: #111 !important;
+}
+
+a {
+  color: #fb7701;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #e06c00;
+  text-decoration: underline;
+}
+
+.btn-temu {
+  background-color: #fb7701;
+  color: white;
+  border: none;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+  display: inline-block;
+  visibility: visible;
+  opacity: 1;
+}
+
+.btn-temu:hover {
+  background-color: #e06c00;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.btn-temu:active {
+  transform: translateY(0);
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Estilos base de Bootstrap (con prefijos añadidos) */
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none; /* Prefijo para WebKit (Safari, iOS Safari viejo) */
+  -moz-user-select: none;    /* Prefijo para Firefox viejo */
+  user-select: none;         /* Estándar */
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.w-100 { width: 100%!important; }
+.mt-2 { margin-top: .5rem!important; }

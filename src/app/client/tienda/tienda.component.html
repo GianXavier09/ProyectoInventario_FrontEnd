@@ -1,44 +1,88 @@
 <div class="container my-5">
-  <div class="text-center mb-5">
-    <h1 class="display-4">Nuestros Productos</h1>
-    <p class="lead text-muted">Explora nuestra colección exclusiva.</p>
+  <div class="text-center mb-4">
+    <h1 class="display-4 fw-bold mb-0">¡Grandes Ofertas!</h1>
+    <p class="lead text-muted">🔥 ¡Descubre descuentos imperdibles esta semana! 🔥</p>
   </div>
 
-  <div class="row mb-4">
-    <div class="col-md-8">
-      <input type="text" class="form-control" placeholder="Buscar por nombre, categoría, marca...">
+  <div id="heroCarousel" class="carousel slide carousel-fade mb-5" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
+    <div class="carousel-inner" style="border-radius: 10px; overflow: hidden;">
+      <div class="carousel-item active" data-bs-interval="5000">
+        <img src="https://picsum.photos/seed/banner1/1200/400" class="d-block w-100" alt="Oferta 1" style="object-fit: cover; height: 400px;">
+        <div class="carousel-caption d-none d-md-block text-start">
+          <h2 class="display-5 fw-bold text-shadow">¡Envío Gratis!</h2>
+          <p class="lead text-shadow">En todos tus pedidos.</p>
+          <button class="btn btn-temu">Descubre más</button>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="5000">
+        <img src="https://picsum.photos/seed/banner2/1200/400" class="d-block w-100" alt="Oferta 2" style="object-fit: cover; height: 400px;">
+        <div class="carousel-caption d-none d-md-block text-start">
+          <h2 class="display-5 fw-bold text-shadow">Moda Increíble</h2>
+          <p class="lead text-shadow">Estilo que te define, precios que te sorprenden.</p>
+          <button class="btn btn-temu">Comprar ahora</button>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="5000">
+        <img src="https://picsum.photos/seed/banner3/1200/400" class="d-block w-100" alt="Oferta 3" style="object-fit: cover; height: 400px;">
+        <div class="carousel-caption d-none d-md-block text-start">
+          <h2 class="display-5 fw-bold text-shadow">Hogar &amp; Jardín</h2>
+          <p class="lead text-shadow">Todo lo que necesitas para tu espacio.</p>
+          <button class="btn btn-temu">Explorar</button>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="text-center mb-4 mt-5">
+    <h1 class="display-5 fw-bold">Nuestros Productos</h1>
+  </div>
+
+  <div class="row filter-bar">
+    <div class="col-md-8 mb-2 mb-md-0">
+      <input type="text" class="form-control" placeholder="Buscar por nombre, categoría, marca..." aria-label="Buscar productos"> </div>
     <div class="col-md-4">
-      <select class="form-select">
+      <select class="form-select" aria-label="Ordenar productos por">
         <option selected>Ordenar por...</option>
         <option value="1">Precio: Menor a Mayor</option>
         <option value="2">Precio: Mayor a Menor</option>
         <option value="3">Más populares</option>
       </select>
-    </div>
+      </div>
   </div>
 
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
     @for (producto of productos; track producto.productid) {
       <div class="col">
-        <div class="card h-100 shadow-sm">
-          <img [src]="producto.imagenUrl || 'https://via.placeholder.com/300x200'" class="card-img-top" alt="{{ producto.productname }}" style="height: 200px; object-fit: cover;">
-         
-         
+        <div class="card h-100 product-card">
+          <span class="sale-badge">-40%</span>
+          <img [src]="producto.imagenUrl || 'https://via.placeholder.com/600x600?text=Imagen+No+Disponible'" class="card-img-top" alt="{{ producto.productname }}" style="height: 200px; object-fit: cover;">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">{{ producto.productname }}</h5>
-            <p class="card-text text-muted small">{{ producto.categoryname }} - {{ producto.marcanombre }}</p>
-            <p class="card-text fs-5 fw-bold mt-auto">{{ producto.price | currency }}</p>
-            <button class="btn btn-primary w-100 mt-2" (click)="agregarAlCarrito(producto)">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus me-1" viewBox="0 0 16 16">
+            <p class="product-category">{{ producto.categoryname }} - {{ producto.marcanombre }}</p>
+            <div class="mt-auto">
+              <span class="product-price">{{ producto.price | currency }}</span>
+              <span class="original-price">{{ (producto.price * 1.4) | currency }}</span>
+              <button class="btn btn-temu w-100 mt-2" (click)="agregarAlCarrito(producto)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus me-1" viewBox="0 0 16 16">
                   <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
                   <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-              </svg>
-              Agregar al Carrito
-            </button>
+                </svg>
+                Agregar al Carrito
+              </button>
+            </div>
           </div>
-
-          
         </div>
       </div>
     } @empty {
@@ -48,28 +92,26 @@
     }
   </div>
 
-  @if (isAdmin()) {
-    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1050;">
-      <a routerLink="/dashboard" class="btn btn-info shadow-sm rounded-pill">
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1050;">
+    @if (isAdmin()) {
+      <a routerLink="/dashboard" class="btn btn-info shadow-sm rounded-pill mb-2 d-block">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-speedometer2 me-1" viewBox="0 0 16 16">
           <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4M3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707M2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.39.39 0 0 1 .525.571l-.915.915a.5.5 0 1 1-.707-.708l.914-.914a.39.39 0 0 1 .182-.143M10.049 13.5a.5.5 0 0 0 .707-.707l-.915-.915a.5.5 0 0 0-.707.708l.915.915z"/>
           <path d="M4 11a4 4 0 1 1 8 0c0 .799-.283 1.54-.768 2.066l.002.002a.5.5 0 0 1-.707 0l-.002-.002A3.9 3.9 0 0 1 8 15a3.9 3.9 0 0 1-3.232-1.934L4 12.5a.5.5 0 0 1 0-.707M8 1a7 7 0 0 0-7 7v2.162c0 .539.214 1.055.598 1.436l.003.004A6 6 0 0 0 15 10.162V8a7 7 0 0 0-7-7"/>
         </svg>
         Ir al Dashboard
       </a>
-    </div>
-  }
-
-  @if (!(isLoggedIn$ | async)) {
-    <div class="position-fixed bottom-0 start-0 p-3" style="z-index: 1050;">
-      <a routerLink="/login" class="btn btn-success shadow-sm rounded-pill">
+    }
+  </div>
+  <div class="position-fixed bottom-0 start-0 p-3" style="z-index: 1050;">
+    @if (!(isLoggedIn$ | async)) {
+      <a routerLink="/login" class="btn btn-success shadow-sm rounded-pill d-block">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right me-1" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
           <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
         </svg>
         Iniciar Sesión
       </a>
-    </div>
-  }
-
+    }
+  </div>
 </div>

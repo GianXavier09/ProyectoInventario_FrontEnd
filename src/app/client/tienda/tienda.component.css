@@ -1,0 +1,95 @@
+/* src/app/client/tienda/tienda.component.css */
+
+.product-card {
+  border-radius: 10px;
+  /* border: 1px solid #eee; */ /* Quitamos el borde anterior */
+  border: none; /* Sin borde por defecto */
+  background-color: #ffffff;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Sombra sutil por defecto */
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* Sombra más pronunciada */
+}
+
+.product-card .card-img-top {
+  border-bottom: 1px solid #f5f5f5;
+  background-color: #fafafa;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 500; /* Usará el peso 500 de Poppins */
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  min-height: 32px;
+}
+
+.product-category {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  color: #fb7701;
+  font-size: 1.5rem;
+  font-weight: 700; /* Usará el peso 700 (Bold) de Poppins */
+  margin-bottom: 5px;
+}
+
+.original-price {
+  font-size: 0.9rem;
+  color: #aaa;
+  text-decoration: line-through;
+  margin-left: 8px;
+}
+
+.sale-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #fb7701;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold; /* Puedes cambiar a 700 si prefieres el peso de Poppins */
+  padding: 4px 8px;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.filter-bar {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+}
+
+.filter-bar .form-control:focus,
+.filter-bar .form-select:focus {
+  border-color: #fb7701;
+  box-shadow: 0 0 0 2px rgba(251, 119, 1, 0.25);
+}
+
+/* Regla extra para forzar visibilidad del botón (se mantiene por precaución) */
+.product-card .card-body div button.btn-temu {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: static !important;
+  height: auto !important;
+  width: 100% !important;
+  margin-top: 0.5rem !important;
+  padding: 10px 15px !important;
+  color: white !important;
+  background-color: #fb7701 !important;
+}
