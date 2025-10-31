@@ -50,6 +50,14 @@
     </div>
 
     <div class="form-floating mb-3">
+        <input type="text"
+               class="form-control"
+               id="txtimagenUrl" [(ngModel)]="imagenUrl"
+               placeholder="URL de la Imagen">
+        <label for="txtimagenUrl">URL de la Imagen del Producto</label>
+    </div>
+
+    <div class="form-floating mb-3">
 <select class="form-control" [(ngModel)]="categoryId">
   <option [ngValue]="null">-- Seleccione Categoría --</option>
   <option *ngFor="let category of categories" [ngValue]="category.categoryid">

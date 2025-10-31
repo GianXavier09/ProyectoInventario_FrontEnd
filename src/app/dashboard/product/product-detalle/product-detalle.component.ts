@@ -30,7 +30,7 @@ export class ProductDetalleComponent {
   stock: number = 0;
   estado: boolean = true;
   talla: string = "";
-
+  imagenUrl: string = "";
   categoryId: number | null = null;
   brandId: number | null = null;
 
@@ -83,6 +83,7 @@ export class ProductDetalleComponent {
           this.stock = response.stock;
           this.estado = response.estado;
           this.talla = response.talla;
+          this.imagenUrl = response.imagenUrl;
           this.categoryId = response.categoryid;
           this.brandId = response.brandid;
         },
@@ -131,6 +132,7 @@ export class ProductDetalleComponent {
         stock: this.stock,
         estado: this.estado,
         talla: this.talla,
+        imagenUrl: this.imagenUrl,
         categoryid: this.categoryId,
         brandid: this.brandId
       };
@@ -148,6 +150,7 @@ export class ProductDetalleComponent {
         stock: this.stock,
         estado: this.estado,
         talla: this.talla,
+        imagenUrl: this.imagenUrl,
         categoryid: this.categoryId,
         brandid: this.brandId
       };

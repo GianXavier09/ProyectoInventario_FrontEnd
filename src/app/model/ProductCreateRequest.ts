@@ -4,6 +4,7 @@ export interface ProductCreateRequest {
   stock: number;
   estado: boolean;
   talla: string;
+  imagenUrl: string;
   categoryid: number;
   brandid: number ;
 }
