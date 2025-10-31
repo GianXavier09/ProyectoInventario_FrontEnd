@@ -70,6 +70,20 @@ export class AuthService {
     return null;
   }
 
+  // --- ¡ESTA ES LA NUEVA FUNCIÓN, AHORA BIEN COLOCADA! ---
+  /**
+   * Devuelve el nombre de usuario (subject) del token decodificado.
+   */
+  getUserName(): string | null {
+    const token = this.getToken();
+    if (token) {
+      const decodedToken = this.decodeToken(token);
+      return decodedToken ? decodedToken.sub : null;
+    }
+    return null;
+  }
+  // --- FIN DE LA NUEVA FUNCIÓN ---
+
   isLoggedIn(): boolean {
     return this.isLoggedInSubject.value;
   }
@@ -100,3 +114,4 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/register`, user, { responseType: 'text' });
   }
 }
+
